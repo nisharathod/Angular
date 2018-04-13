@@ -1,0 +1,11 @@
+    <div class="addme">
+        <button type="button" ng-click="$ctrl.user_fac_obj.showHide()"  class="btn">Add User</button>
+    </div>
+    <!--Form Component-->
+    <div class="new_form" ng-show="IsVisible">
+        <new-form form-obj="$ctrl.user_fac_obj"></new-form>
+    </div>
+    <!--list component-->
+    <div class="my_list">
+    <my-list list-obj="$ctrl.user_fac_obj"></my-list>
+    </div>

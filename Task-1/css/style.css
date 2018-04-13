@@ -1,0 +1,16 @@
+.addme{
+    
+    float: right;
+}
+.my_page{
+    margin-top: 70px;
+}
+.description,.heading,.footer{
+    color: white;
+}
+input{
+    margin-left: 20px;
+}
+button{
+    margin: 10px;
+}

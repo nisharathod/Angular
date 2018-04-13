@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DemoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User-Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Angular js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
+    <script src="js/pageComponent.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/listComponent.js"></script>
+    <script src="js/formComponent.js"></script>
+
+
+</head>
+<body>
+    <!--header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container"> 
+            <a class="navbar-brand"><div class="heading">User Information</div></a>
+                <div class="navbar-text text-center">
+                        <h6 class="description">Hey users, here u can enter your information and view it in list after submission.</h6>
+                </div>
+            </div>   
+    </nav>
+    <div class="my_page">
+     <my-page page-obj="$ctrl.user_fac_obj">
+        
+    </my-page>   
+    </div>
+    <!--footer-->
+    <div class="navbar navbar-inverse navbar-fixed-bottom ">
+            <div class="container">
+                <div class="navbar-text text-center">
+                <h6 class="footer">copyright@NishaRathod</h6>
+                </div>
+            </div>
+    </div>
+    <div>
+            
+    </div>
+</body>
+</html>
