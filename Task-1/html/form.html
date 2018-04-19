@@ -20,12 +20,13 @@
                            </br>
                            <label>DOB :<input  type="date" ng-model="$ctrl.formObj.user_form.dob" name="dob" required></label>
                             </br>
-                           <label>Mobile No :<input  type="number" name="mob" ng-model="$ctrl.formObj.user_form.mob" ng-minlength="10" ng-maxlength="10" required></label>
-                           <span ng-show=" form.mob.$dirty && form.mob.$error.minlength">Not valid length!</span>
-                           <span ng-show=" form.mob.$dirty && form.mob.$error.maxlength">Not valid length!</span>
+                           <label>Mobile No :<input  type="text" name="mob" ng-model="$ctrl.formObj.user_form.mob" ng-pattern="/^\d{10}$/" required></label>
+                           <span ng-show=" form.mob.$dirty && form.mob.$invalid"> should be of 10 digits only</span>
+                           <!--<span ng-show=" form.mob.$dirty && form.mob.$error.minlength">Not valid length!</span>
+                           <span ng-show=" form.mob.$dirty && form.mob.$error.maxlength">Not valid length!</span>-->
                            </br>
-                           <label>Gender : <input type="radio" ng-model="$ctrl.formObj.user_form.radio" ng-value="Male" name="radio"checked>Male</input> <input  type="radio" ng-model="$ctrl.formObj.user_form.radio" ng-value="Female" name="radio" required>Female</input></label></br>
-                           <input type="submit" class="btn btn-info btn-sm" name="save" value="Save" ></input><input type="button" class="btn btn-info btn-sm" name="cancel" ng-click="$ctrl.formObj.clearForm()" value="Cancel"></input>
+                           <label>Gender : <input type="radio" ng-model="$ctrl.formObj.user_form.radio" value="Male" name="radio" >Male</input> <input  type="radio" ng-model="$ctrl.formObj.user_form.radio" value="Female" name="radio" required>Female</input></label></br>
+                           <input type="submit" ng-show="$ctrl.formObj.submit_btn" class="btn btn-info btn-sm" name="save" value="Save" ></input></input><input type="button" ng_show="$ctrl.formObj.update_btn" class="btn btn-info btn-sm"  ng-click="$ctrl.formObj.update()" value="Update"></input><input type="button" class="btn btn-info btn-sm" name="cancel" ng-click="$ctrl.formObj.clearForm()" value="Cancel"></input>
                        </div>
                    </form>
            </div>

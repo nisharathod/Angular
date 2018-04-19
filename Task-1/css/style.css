@@ -3,7 +3,7 @@
     float: right;
 }
 .my_page{
-    margin-top: 70px;
+    margin-top: 6%;
 }
 .description,.heading,.footer{
     color: white;
@@ -13,4 +13,11 @@ input{
 }
 button{
     margin: 10px;
+}
+td,th{
+    text-align: center;
+    padding: 10px;
+}
+table{
+    margin: 10%;
 }
