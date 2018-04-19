@@ -20,7 +20,9 @@ app.factory("crud",function(){
         showHide:function(){},
         showHideList:function(){},
         deleteMe:function(){},
-        update:function(){}
+        update:function(){},
+        cancelMe:function(){}
+    
     };
 
     var cloned_obj = {};
@@ -55,13 +57,23 @@ app.factory("crud",function(){
         user_obj.user_form = current_obj;
         user_obj.submit_btn= user_obj.submit_btn ? false : true;
         user_obj.update_btn=user_obj.update_btn ? false : true;
-
+       
      }
      user_obj.update=function(){
         user_obj.user_array[user_obj.index]=user_obj.user_form;
-        
         user_obj.show_form = user_obj.show_form ? false : true;
         user_obj.show_list = user_obj.show_list ? false : true;
+        user_obj.user_form = angular.copy(cloned_obj.user_form);
+         user_obj.submit_btn= user_obj.submit_btn ? false : true;
+        user_obj.update_btn=user_obj.update_btn ? false : true;
+        
+     }
+     user_obj.cancelMe=function(){
+        user_obj.user_form = angular.copy(cloned_obj.user_form);
+        user_obj.show_form = user_obj.show_form ? false : true;
+        user_obj.show_list = user_obj.show_list ? false : true;
+        user_obj.submit_btn= user_obj.submit_btn ? false : true;
+        user_obj.update_btn=user_obj.update_btn ? false : true;
      }
 
      user_obj.deleteMe = function(index){

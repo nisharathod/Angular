@@ -2,7 +2,7 @@
         <button type="button" ng-click="$ctrl.user_fac_obj.showHide()" ng-hide="$ctrl.user_fac_obj.show_form" class="btn">Add User</button>
     </div>
     <!--Form Component-->
-    <div class="new_form" ng-show="$ctrl.user_fac_obj.show_form">
+    <div class="new_form" ng-if="$ctrl.user_fac_obj.show_form">
         <new-form form-obj="$ctrl.user_fac_obj"></new-form>
     </div>
     <!--list component-->
