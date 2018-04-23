@@ -1,8 +1,7 @@
-
 <div class="container">
     <div class="row">
-       <div class="col-md-6 col-sm-6 col-xs-12">          
-           <table border="1">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <table border="1">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -17,19 +16,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="e in $ctrl.listObj.user_array">
+                    <tr ng-show="$ctrl.listObj.user_array.length==0">
+                        <td colspan="9">No Data Available ! click AddUser to add..</td>
+                    </tr>
+                    <tr ng-repeat="e in $ctrl.listObj.user_array" ng-show="$ctrl.listObj.user_array.length!=0">
                         <td>{{$index+1}}</td>
                         <td>{{e.fname+' '+e.lname | uppercase}}</td>
                         <td>{{e.email |removeCom}}</td>
                         <td>{{e.pwd}}</td>
-                        <td>{{e.dob | date : 'dd/MMM/yyyy'}}</td>
+                        <td>{{e.dob | date : 'dd MMM yyyy'}}</td>
                         <td>{{e.mob}}</td>
                         <td>{{e.radio}}</td>
-                        <td><input class="btn" type="button" value="Edit"  ng-click="$ctrl.listObj.editMe(e,$index)"></input></td>
-                        <td><input class="btn" type="button" value="Delete" ng-click="$ctrl.listObj.deleteMe($index)"></input></td>
+                        <td>
+                            <input class="btn" type="button" value="Edit" ng-click="$ctrl.listObj.editMe(e,$index)"></input>
+                        </td>
+                        <td>
+                            <input class="btn" type="button" value="Delete" ng-click="$ctrl.listObj.deleteMe($index)"></input>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>    
- </div>
+    </div>
+</div>

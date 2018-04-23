@@ -1,56 +1,59 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
-            <form name="form" ng-submit="form.$valid && $ctrl.formObj.addData()" >
+            <form name="form" novalidate ng-submit="form.$valid && $ctrl.formObj.addData()">
                 <div class="form-group">
                     <label>First Name :
                         <input type="text" name="fname" ng-model="$ctrl.formObj.user_form.fname" required>
+                        <div class="error_col" ng-show="form.fname.$error.required && form.$submitted">Please enter First Name</div>
                     </label>
-                    <span ng-show="form.fname.$dirty && form.fname.$error.required">Required!!</span>
                     </br>
                     <label>Last Name :
                         <input type="text" name="lname" ng-model="$ctrl.formObj.user_form.lname" required>
+                        <div class="error_col" ng-show="form.lname.$error.required && form.$submitted">please enter Last name</div>
                     </label>
-                    <span ng-show="form.lname.$dirty && form.lname.$error.required">Required!!</span>
                     </br>
                     <label>Email :
                         <input type="email" name="email" ng-model="$ctrl.formObj.user_form.email" required>
+                        <div class="error_col">
+                            <span ng-show="form.email.$error.email && form.$submitted">Not an email!!</span>
+                            <span ng-show="form.email.$error.required  && form.$submitted">Please Enter Email</span>
+                        </div>
                     </label>
-                    <span ng-show="form.email.$dirty && form.email.$error.required">Required!!</span>
-                    <span ng-show="form.email.$dirty && form.email.$error.email">Not an email!!</span>
                     </br>
                     <label>Password :
-                        <input type="password" name="pwd" ng-minlength="5" ng-maxlength="10" ng-model="$ctrl.formObj.user_form.pwd"
-                            required>
+                        <input type="password" name="pwd" ng-minlength="5" ng-maxlength="10" ng-model="$ctrl.formObj.user_form.pwd" required>
+                        <div class="error_col">
+                            <span ng-show="form.pwd.$error.required  && form.$submitted">Please Enter Password</span>
+                            <span ng-show=" form.$submitted && form.pwd.$error.minlength">Too Short!!</span>
+                            <span ng-show=" form.$submitted && form.pwd.$error.maxlength">Tooo Long!!</span>
+                        </div>
                     </label>
-                    <span ng-show="form.pwd.$dirty && form.pwd.$error.required">Required!!</span>
-                    <span ng-show=" form.pwd.$dirty && form.pwd.$error.minlength">Too Short!!</span>
-                    <span ng-show=" form.pwd.$dirty && form.pwd.$error.maxlength">Tooo Long!!</span>
                     </br>
                     <label>DOB :
                         <input type="date" ng-model="$ctrl.formObj.user_form.dob" name="dob" required>
+                        <div class="error_col" ng-show="form.dob.$error.required  && form.$submitted">Please Enter DOB</div>
                     </label>
                     </br>
                     <label>Mobile No :
-                        <input type="text" name="mob" ng-model="$ctrl.formObj.user_form.mob" ng-pattern="/^\d{10}$/"
-                            required>
+                        <input type="text" name="mob" ng-model="$ctrl.formObj.user_form.mob" ng-pattern="/^\d{10}$/" required>
+                        <div class="error_col">
+                            <div ng-show=" form.mob.$error.required  && form.$submitted">Please Enter Password</div>
+                            <span ng-show=" form.$submitted && form.mob.$error.pattern"> should be of 10 digits only</span>
+                            <span ng-show=" form.$submitted && form.mob.$error.minlength">Not valid length!</span>
+                            <span ng-show=" form.$submitted && form.mob.$error.maxlength">Not valid length!</span>
+                        </div>
                     </label>
-                    <span ng-show=" form.mob.$dirty && form.mob.$error.pattern"> should be of 10 digits only</span>
-                    <!--<span ng-show=" form.mob.$dirty && form.mob.$error.minlength">Not valid length!</span>
-                           <span ng-show=" form.mob.$dirty && form.mob.$error.maxlength">Not valid length!</span>-->
                     </br>
                     <label>Gender :
                         <input type="radio" ng-model="$ctrl.formObj.user_form.radio" value="Male" name="radio">Male</input>
-                        <input type="radio" ng-model="$ctrl.formObj.user_form.radio" value="Female" name="radio"
-                            required>Female</input>
+                        <input type="radio" ng-model="$ctrl.formObj.user_form.radio" value="Female" name="radio" required>Female</input>
+                        <div class="error_col" ng-show="form.$submitted && form.radio.$error.required">Select any one</div>
                     </label>
                     </br>
                     <input type="submit" ng-show="$ctrl.formObj.submit_btn" class="btn btn-info btn-sm" name="save" value="Save"></input>
-                    </input>
-                    <input type="button" ng-show="$ctrl.formObj.update_btn" class="btn btn-info btn-sm" ng-click="$ctrl.formObj.update()"
-                        value="Update"></input>
-                    <input type="button" class="btn btn-info btn-sm" name="cancel" ng-click="$ctrl.formObj.cancelMe()"
-                        value="Cancel"></input>
+                    <input type="button" ng-show="$ctrl.formObj.update_btn" class="btn btn-info btn-sm" ng-click="$ctrl.formObj.update()" value="Update"></input>
+                    <input type="button" class="btn btn-info btn-sm" name="cancel" ng-click="$ctrl.formObj.cancelMe()" value="Cancel"></input>
                 </div>
             </form>
         </div>

@@ -18,6 +18,12 @@ td,th{
     text-align: center;
     padding: 10px;
 }
+tr.th.td{
+    display: inline-block;
+}
 table{
     margin: 10%;
+}
+.error_col{
+    color: red;
 }
