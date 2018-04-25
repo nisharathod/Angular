@@ -9,7 +9,7 @@
     }
     angular
       .module('DemoApp')
-      .component('newForm', {
+      .component('newForm',{
         templateUrl:'html/form.html',
         transclude: true,
         controller: newForm,
