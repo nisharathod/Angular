@@ -1,0 +1,47 @@
+.form{
+    margin-top: 10%;
+    margin-left: 30%;
+}
+.btnlogout{
+    float: right;
+}
+#logout{
+    margin-top: 10px;
+}
+th,td{
+    padding: 20px;
+}
+table{
+    width: 20%;
+}
+#btnlogin{
+    margin-left: 40%;
+}
+.list{
+    margin-top: 10%;
+    margin-left: 30%;
+}
+button{
+    margin-left:15px;
+    
+}
+input{
+    margin-left: 20px;
+    margin:4px;
+}
+.table{
+    width: 80%;
+}
+.navfont{
+    color: whitesmoke;
+}
+.error_col{
+    color: red;
+}
+.signin{
+    margin-left: 15%;
+    margin-top: 5%;
+}
+.listview{
+    float: left;
+}

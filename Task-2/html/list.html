@@ -1,0 +1,38 @@
+<header-comp nav-obj="$ctrl.user_nav_obj" ng-if="$ctrl.user_fac_obj.isvalidate">
+</header-comp>
+<div class="row list" ng-show="$ctrl.user_fac_obj.isvalidate">
+    <div class="table-responsive listview">
+        <table border="1" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>User Name</th>
+                    <th>Password</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Mobile No</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in $ctrl.user_fac_obj.pre_form track by $index">
+                    <td>{{$index+1}}</td>
+                    <td>{{e.uname}}</td>
+                    <td>{{e.pwd}}</td>
+                    <td>{{e.fname}}</td>
+                    <td>{{e.lname}}</td>
+                    <td>{{e.email}}</td>
+                    <td>{{e.mob}}</td>
+                    <td>
+                        <input class="btn" type="button" value="Edit" ng-click="$ctrl.user_fac_obj.editMe(e,$index)"></input>
+                    </td>
+                    <td>
+                        <input class="btn" type="button" value="Delete" ng-click="$ctrl.user_fac_obj.deleteMe($index)"></input>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

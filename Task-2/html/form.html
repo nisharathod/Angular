@@ -1,0 +1,45 @@
+<header-comp nav-obj="$ctrl.user_nav_obj" ng-if="$ctrl.user_fac_obj.isvalidate">
+</header-comp>
+<div class="row" ng-show="$ctrl.user_fac_obj.isvalidate" ng-hide="$ctrl.user_fac_obj.hideform">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <form name="form" class="form" novalidate ng-submit="form.$valid && $ctrl.user_fac_obj.newUser()">
+            <div class="form-group">
+                User Name:
+                <input type="text" name="uname" ng-model="$ctrl.user_fac_obj.user_form.uname" required>
+                </br>
+                <div class="error_col" ng-show="form.uname.$error.required && form.$submitted && $ctrl.user_fac_obj.req_val">Please enter User Name</div>
+                Password:
+                <input type="password" name="pwd" ng-model="$ctrl.user_fac_obj.user_form.pwd " required>
+                </br>
+                <div class="error_col" ng-show="form.pwd.$error.required && form.$submitted && $ctrl.user_fac_obj.req_val">Please enter Password</div>
+                First Name:
+                <input type="text" name="fname" ng-model="$ctrl.user_fac_obj.user_form.fname" required>
+                </br>
+                <div class="error_col" ng-show="form.fname.$error.required && form.$submitted && $ctrl.user_fac_obj.req_val">Please enter First Name</div>
+                Last Name:
+                <input type="text" name="lname" ng-model="$ctrl.user_fac_obj.user_form.lname" required>
+                <div class="error_col" ng-show="form.lname.$error.required && form.$submitted && $ctrl.user_fac_obj.req_val">please enter Last name</div>
+                </label>
+                </br>
+                Email Add:
+                <input type="email" name="email" ng-model="$ctrl.user_fac_obj.user_form.email" required>
+                </br>
+                <div class="error_col">
+                    <span ng-show="form.email.$error.required && form.$submitted && $ctrl.user_fac_obj.req_val">Please enter Email</span>
+                    <span ng-show="form.email.$error.email && form.$submitted && $ctrl.user_fac_obj.req_val">Not an email!!</span>
+                </div>
+                Mobile No:
+                <input type="number" name="mob" ng-model="$ctrl.user_fac_obj.user_form.mob" ng-pattern="/^\d{10}$/" required>
+                <div class="error_col">
+                    <span ng-show="form.mob.$error.required && form.$submitted && $ctrl.user_fac_obj.req_val">Please enter valid mobile no</span>
+                    <span ng-show=" form.$submitted && form.mob.$error.pattern && $ctrl.user_fac_obj.req_val"> should be of 10 digits only</span>
+                    <span ng-show=" form.$submitted && form.mob.$error.minlength && $ctrl.user_fac_obj.req_val">Not valid length!</span>
+                    <span ng-show=" form.$submitted && form.mob.$error.maxlength && $ctrl.user_fac_obj.req_val">Not valid length!</span>
+                </div>
+                </br>
+                <input type="submit" value="Save" class="btn btn-info btn-sm">
+                <input type="button" value="Cancel" class="btn btn-info btn-sm " ng-click="$ctrl.user_fac_obj.clearForm()">
+            </div>
+        </form>
+    </div>
+</div>

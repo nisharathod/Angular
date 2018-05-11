@@ -1,0 +1,42 @@
+<div ng-hide="$ctrl.user_fac_obj.isvalidate">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12 signin" >
+            <form ng-submit="$ctrl.user_fac_obj.verifyData()" novalidate name="signin" class="form">
+                <div class="form-group">
+                    <div>
+                        <table border="1" class="table-striped">
+                            <thead>
+                                <tr>
+                                    <th colspan="2"><h4><b>User Login</b></h4></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>UserName</b> </td>
+                                    <td>
+                                        <input type="text" name="uname" ng-model="$ctrl.user_fac_obj.signin_form.uname" required>
+                                        <div class="error_col" ng-show="signin.uname.$error.required && signin.$submitted">Please enter User Name</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Password</b> </td>
+                                    <td>
+                                        <input type="password" name="pwd" ng-model="$ctrl.user_fac_obj.signin_form.pwd" required>
+                                        <div class="error_col" ng-show="signin.pwd.$error.required && signin.$submitted">Please enter password</div>
+                                        <div class="error_col" ng-show="signin.$submitted && $ctrl.user_fac_obj.signIn_error && !(signin.pwd.$error.required)">The password that you've entered is incorrect. </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="submit" id="btnlogin" class="btn btn-ok" value="Login">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

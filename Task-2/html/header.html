@@ -1,0 +1,12 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="appDetails"><div  class="navfont">UserInfo using ui-router</div></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right ">
+            <li><a ui-sref="appDetails"><div  class="navfont">AppDetails</div></a></li>
+            <li ng-show="$ctrl.user_nav_obj.is_admin"><a ui-sref="addUser"><div class="navfont">AddUser</div></a></li>
+            <li ng-show="$ctrl.user_nav_obj.is_admin"><a ui-sref="viewUser"><div class="navfont">ViewUser</div></a></li>
+            <input id ="logout" class="btn btn-sm" type="button" ng-click="$ctrl.user_nav_obj.clearMe();$ctrl.user_nav_obj.resetFactory()"  value="LogOut"/>
+        </ul>
+    </nav>

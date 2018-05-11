@@ -1,0 +1,24 @@
+var app=angular.module("myApp",[,"ngStorage","ui.router"]);
+app.config(function($stateProvider,$urlRouterProvider){
+    $urlRouterProvider.otherwise('/signIn');
+    $stateProvider
+    .state("signIn",{
+        url:"/signIn",
+        component:"signIn",
+    })
+    .state("addUser",{
+        url:"/addUser",
+        component:"formComponent",
+       //templateUrl:"html/form.html",
+    })
+    .state("viewUser",{
+        url:"/viewUser",
+        component:"listComponent",
+        //templateUrl:"html/list.html",
+    })
+    .state("appDetails",{
+        url:"/appDetails",
+        //templateUrl:"html/aboutApp.html",
+        component:"aboutAppComp",
+    })
+});
