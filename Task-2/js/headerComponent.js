@@ -1,21 +1,21 @@
 (function () {
-    function headerComp(validate) {
+    function headerComp(validate,$localStorage) {
           var ctrl = this;
           ctrl.$onInit = function() {
             var ctrl = this;
-            //ctrl.user_array=crud;
+          
             ctrl.user_nav_obj = validate;
             //ctrl.user_nav_obj.resetFactory();
-            console.log("value of isvalidate in header compo",ctrl.user_nav_obj.isvalidate)
-             // resetFactory();
-            //console.log(ctrl.user_nav_obj);  
-            //console.log(ctrl.user_obj);   
-                         
+            if(localStorage.is_admin=true){
+              console.log("val of admin in ls.",localStorage.is_admin);
+             ctrl.user_nav_obj.is_admin=true;
+            console.log("is admin after refresh in header",ctrl.user_nav_obj.is_admin);  
+            }     
           };
           ctrl.$onDestroy = function() {
           };
     }
-    headerComp.$inject = ['validate'];
+    headerComp.$inject = ['validate','$localStorage'];
     angular
       .module('myApp')
       .component('headerComp', {

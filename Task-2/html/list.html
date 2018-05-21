@@ -1,7 +1,6 @@
 <header-comp nav-obj="$ctrl.user_nav_obj" ng-if="$ctrl.user_fac_obj.isvalidate">
 </header-comp>
 <div class="row list" ng-show="$ctrl.user_fac_obj.isvalidate">
-    <div class="table-responsive listview">
         <table border="1" class="table table-striped">
             <thead>
                 <tr>
@@ -12,12 +11,15 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Mobile No</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th ng-show="$ctrl.user_fac_obj.is_admin">Edit</th>
+                    <th ng-show="$ctrl.user_fac_obj.is_admin">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="e in $ctrl.user_fac_obj.pre_form track by $index">
+                    <tr ng-show="$ctrl.user_fac_obj.pre_form.length==0">
+                            <td colspan="9">No Data Available ! click AddUser to add..</td>
+                        </tr>
+                <tr ng-repeat="e in $ctrl.user_fac_obj.pre_form track by $index" ng-show="$ctrl.user_fac_obj.pre_form.length!=0">
                     <td>{{$index+1}}</td>
                     <td>{{e.uname}}</td>
                     <td>{{e.pwd}}</td>
@@ -25,14 +27,13 @@
                     <td>{{e.lname}}</td>
                     <td>{{e.email}}</td>
                     <td>{{e.mob}}</td>
-                    <td>
-                        <input class="btn" type="button" value="Edit" ng-click="$ctrl.user_fac_obj.editMe(e,$index)"></input>
+                    <td ng-show="$ctrl.user_fac_obj.is_admin">
+                        <input class="btn" type="button" value="Edit"  ng-click="$ctrl.user_fac_obj.editMe(e,$index)"></input>
                     </td>
-                    <td>
+                    <td  ng-show="$ctrl.user_fac_obj.is_admin">
                         <input class="btn" type="button" value="Delete" ng-click="$ctrl.user_fac_obj.deleteMe($index)"></input>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>

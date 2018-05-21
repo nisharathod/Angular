@@ -1,24 +1,25 @@
-var app=angular.module("myApp",[,"ngStorage","ui.router"]);
-app.config(function($stateProvider,$urlRouterProvider){
-    $urlRouterProvider.otherwise('/signIn');
-    $stateProvider
-    .state("signIn",{
-        url:"/signIn",
-        component:"signIn",
+var app = angular.module("myApp", ["ngStorage", "ui.router"]);
+app.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/signIn");
+  $stateProvider
+    .state("signIn", {
+      url: "/signIn",
+      component: "signIn",
+      
     })
-    .state("addUser",{
-        url:"/addUser",
-        component:"formComponent",
-       //templateUrl:"html/form.html",
+    .state("addUser", {
+      url: "/addUser",
+      component: "formComponent",
+    
     })
-    .state("viewUser",{
-        url:"/viewUser",
-        component:"listComponent",
-        //templateUrl:"html/list.html",
+    .state("viewUser", {
+      url: "/viewUser",
+      component: "listComponent"
+
     })
-    .state("appDetails",{
-        url:"/appDetails",
-        //templateUrl:"html/aboutApp.html",
-        component:"aboutAppComp",
-    })
+    .state("appDetails", {
+      url: "/appDetails",
+      component: "aboutAppComp"
+    });
 });
+

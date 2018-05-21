@@ -54,7 +54,7 @@ app.factory("validate", [
     var clonedObj = {};
     userObj.verifyData = function() {
       console.log("im in");
-      $localStorage.pre_form = userObj.pre_form;
+     $localStorage.pre_form = userObj.pre_form;
       var values = $localStorage.pre_form;
       for (var i = 0; i < values.length; i++) {
         console.log("user form object uname",userObj.signin_form.uname)
@@ -68,14 +68,15 @@ app.factory("validate", [
             userObj.signin_form.pwd == "admin"
           ) {
             userObj.is_admin = true;
+            $localStorage.is_admin=userObj.is_admin;
             console.log("value of is_admin", userObj.is_admin);
           
           }
           $state.go("appDetails");
           console.log("authorised user");
           userObj.isvalidate = userObj.isvalidate ? false : true;
-          console.log("isvalidate",userObj.isvalidate);
-         // 
+          $localStorage.isvalidate=userObj.isvalidate;
+          console.log("isvalidate in userObj",userObj.isvalidate);
           break;
         } else {
           console.log("something missing");
@@ -87,6 +88,7 @@ app.factory("validate", [
     userObj.newUser = function(){
     
         userObj.pre_form.push(userObj.user_form);
+       // $localStorage.pre_form = userObj.pre_form;
         console.log(userObj.pre_form);
         window.alert("New user added successfully!");
         userObj.req_val = false;
@@ -98,22 +100,18 @@ app.factory("validate", [
       userObj.user_form = currentObj;
       $state.go("addUser");
       userObj.pre_form.splice(index, 1);
-    
-      //userObj.show_form=true;
     };
     userObj.clearMe = function() {
      // $localStorage.$reset();
       console.log("local storage deleted//");
-     
       userObj.isvalidate = false;
-      userObj.signin_form.uname = clonedObj.show_form.uname;
-      userObj.signin_form.pwd = clonedObj.show_form.pwd;
-     // userObj.user_form = clonedObj.user_form;
-      //userObj = angular.copy(clonedObj);
-      userObj.pre_form = clonedObj.pre_form;
+      $localStorage.isvalidate=userObj.isvalidate;
+      userObj.signin_form.uname = clonedObj.signin_form.uname;
+       userObj.signin_form.pwd = clonedObj.signin_form.pwd;
+      //userObj.pre_form = clonedObj.pre_form;
       userObj.is_admin=clonedObj.is_admin;
-      userObj.signin_form = clonedObj.signin_form;
-      $localStorage.pre_form = clonedObj.pre_form;
+      $localStorage.is_admin=userObj.is_admin;
+     // $localStorage.pre_form = clonedObj.pre_form;
       console.log("available pre_form",userObj.pre_form);
       $state.go("signIn");
     };
@@ -128,14 +126,7 @@ app.factory("validate", [
       // window.alert("sure");
     };
     clonedObj = angular.copy(userObj);
-    // userObj.resetFactory=function (){
-    //  var userObj=angular.copy(clonedObj);
-    // };
-    // userObj.resetFactory=function(){
-    //  userObj=angular.copy(clonedObj);
-    //   console.log("reset factory called");
-    //     //return resetFactory;
-    //}
+
     return userObj;
   }
 ]);
